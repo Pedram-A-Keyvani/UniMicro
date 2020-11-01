@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="login">
+    <div class="login-box">
+        <div class="login-box__content">
+            <div class="field field--inline">
+                <div class="field__label">user name</div>
+                <input type="text" class="field__input" />
+            </div>
+            <div class="field field--inline">
+                <div class="field__label">password</div>
+                <input type="password" class="field__input" />
+            </div>
+        </div>
+        <div class="line line--horizontal"></div>
+        <div class="login-box__actions">
+            <div class="button button__login">login</div>
+            <div *ngIf="false" class="button button__login button--disabled">login</div>
+        </div>
+    </div>
+</div>
