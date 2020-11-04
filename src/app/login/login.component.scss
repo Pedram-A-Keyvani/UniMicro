@@ -1,10 +1,13 @@
+@use 'src/app/shared/styles/_form' as field;
+@use 'src/app/shared/styles/_line' as line;
+@use 'src/app/shared/styles/_button' as button;
+
 :host {
     .login {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: cadetblue;
-        width: 100%;
+        background-color: #285767;
         height: 100%;
     }
 
@@ -31,77 +34,25 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        margin-top: 5px;
     }
 
     .field {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        width: 100%;
-
-        &__label {
-            align-items: flex-start;
-            flex: 1 1 auto;
-            font-size: 14px;
-            color: #646464;
-            margin: 5px;
-        }
-
-        &__input {
-            align-items: flex-end;
-            flex: 1 1 auto;
-            font-size: 16px;
-            border: solid 1px #c1c1c1;
-            border-radius: 5px;
-            height: 25px;
-            margin: 5px;
-            padding: 5px;
-        }
-
-        &--inline {
-            flex-direction: row;
-
-            &__label {
-                justify-content: flex-start;
-                flex: 1 1 auto;
-            }
-
-            &__input {
-                justify-content: flex-end;
-                flex: 1 1 auto;
-            }
-        }
+        @include field.as-field;
     }
 
     .button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 5px;
-        margin: 5px;
-        border-radius: 5px;
+        @include button.as-button;
 
         &__login {
             color: #ffffff;
-            background-color: #05880b;
+            background-color: #1793be;
             min-width: 150px;
-        }
-
-        &--disabled {
-            color: #646464;
-            background-color: #c1c1c1;
+            height: 30px;
         }
     }
 
     .line {
-        background-color: #c1c1c1;
-
-        &--horizontal {
-            height: 1px;
-            width: 100%;
-            margin: 5px 0;
-        }
+        @include line.as-line;
     }
 }
