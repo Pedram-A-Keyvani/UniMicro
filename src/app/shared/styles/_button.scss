@@ -1,0 +1,18 @@
+@mixin as-button($font-size: 20px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: $font-size;
+
+    // unselectable text
+    user-select: none;
+
+    &--disabled {
+        color: #646464;
+        background-color: #c1c1c1;
+        pointer-events: none;
+    }
+}

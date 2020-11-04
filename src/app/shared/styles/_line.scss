@@ -1,0 +1,26 @@
+@mixin as-line(
+    $tickness: 1px,
+    $background-color: #c1c1c1,
+    $margin: 5px,
+    $title-background-color: #ffffff,
+    $title-margin: 5px
+) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $background-color;
+
+    &__title {
+        background-color: $title-background-color;
+
+        &--horizontal {
+            padding: 0 $title-margin;
+        }
+    }
+
+    &--horizontal {
+        height: $tickness;
+        width: 100%;
+        margin: $margin 0;
+    }
+}

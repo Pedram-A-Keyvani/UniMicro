@@ -1,0 +1,43 @@
+@mixin as-field($label-font-size: 14px, $input-font-size: 15px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+    &__label {
+        align-items: flex-start;
+        flex: 1;
+        font-size: $label-font-size;
+        color: #646464;
+        margin: 5px;
+    }
+
+    &__input {
+        flex: 1 1 50%;
+        font-size: $input-font-size;
+        border: solid 1px #c1c1c1;
+        border-radius: 5px;
+        height: 25px;
+        margin: 5px;
+        padding: 5px;
+        min-width: 250px;
+    }
+
+    &--inline {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &--error {
+        div {
+            color: #e91919;
+        }
+
+        input {
+            border-color: #e91919;
+        }
+    }
+}
