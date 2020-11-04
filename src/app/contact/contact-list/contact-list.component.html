@@ -1,0 +1,34 @@
+<div class="container">
+    <h2 class="caption">Contacts</h2>
+    <div class="list" #list>
+        <div class="list__header">
+            <div class="header-item header-item--fixed"></div>
+            <div class="header-item cell-w5">Name</div>
+            <div class="header-item cell-w4">Role</div>
+            <div class="header-item cell-w5">Email</div>
+            <div class="header-item cell-w2">Phone</div>
+            <div class="header-item cell-w3">Country</div>
+            <div class="header-item cell-w2">City</div>
+        </div>
+        <div class="list__items">
+            <div *ngFor="let contact of contacts" class="list__item">
+                <div class="item-content item-content--fixed">
+                    <input type="radio" name="list-item" [value]="contact.id" [(ngModel)]="selectedItemId">
+                </div>
+                <div class="item-content cell-w5">{{contact.info.name}}</div>
+                <div class="item-content cell-w4">{{contact.role}}</div>
+                <div class="item-content cell-w5">{{contact.info.defaultEmail.emailAddress}}</div>
+                <div class="item-content cell-w2">{{contact.info.defaultPhone.number}}</div>
+                <div class="item-content cell-w3">{{contact.info.invoiceAddress.country}}</div>
+                <div class="item-content cell-w2">{{contact.info.invoiceAddress.city}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <a class="button button__add" [routerLink]="['/contacts', 'add']">Add</a>
+        <a class="button button__edit" [class.button--disabled]="!selectedItemId"
+            [routerLink]="['/contacts', 'edit', selectedItemId]">Edit</a>
+        <div class="button button__delete" [class.button--disabled]="!selectedItemId"
+            (click)="onDelete(selectedItemId)">Delete</div>
+    </div>
+</div>

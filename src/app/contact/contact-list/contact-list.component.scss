@@ -1,0 +1,132 @@
+@use 'src/app/shared/styles/_button' as button;
+
+:host {
+    --list-width: 900px;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100%;
+    }
+
+    .caption {
+        display: flex;
+        justify-content: center;
+        background-color: #232323;
+        color: #ffffff;
+        margin: 0;
+        padding-left: 50px;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: var(--list-width);
+        overflow-x: auto;
+        height: 100%;
+
+        &__header {
+            display: flex;
+            background-color: #a1a1a1;
+            color: #ffffff;
+        }
+
+        &__items {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__item {
+            display: flex;
+
+            &:not(:first-child) {
+                border-top: solid 1px #c1c1c1;
+            }
+        }
+    }
+
+    .cell-fixed {
+        position: sticky;
+        left: 0;
+        width: 20px;
+    }
+
+    .cell-item {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        box-sizing: content-box;
+        word-break: break-word;
+        padding: 5px;
+    }
+
+    .header-item {
+        @extend .cell-item;
+
+        &--center {
+            justify-content: center;
+        }
+
+        &--fixed {
+            @extend .cell-fixed;
+            background-color: #a1a1a1;
+        }
+    }
+
+    .item-content {
+        @extend .cell-item;
+
+        &--fixed {
+            @extend .cell-fixed;
+            background-color: #ffffff;
+        }
+    }
+
+    .cell {
+        $columns: 20;
+        @for $item from 0 to $columns {
+            &-w#{$item} {
+                width: calc(var(--list-width) / #{$columns} * #{$item});
+                // width: calc(1000px / #{$columns} * #{$item});
+            }
+        }
+    }
+
+    .button {
+        font-size: 16px;
+        text-decoration: none;
+        width: 100%;
+
+        &__add {
+            color: #ffffff;
+            background-color: #0c9129;
+        }
+
+        &__edit {
+            color: #212121;
+            background-color: #e7d31f;
+        }
+
+        &__delete {
+            color: #ffffff;
+            background-color: #be1717;
+        }
+
+        @include button.as-button;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        padding: 20px;
+
+        .button {
+            max-width: 150px;
+            margin: 5px;
+        }
+    }
+}
