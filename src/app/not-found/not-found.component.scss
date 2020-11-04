@@ -1,0 +1,14 @@
+:host {
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #af4141;
+        height: 100%;
+
+        .not-found {
+            color: #ffffff;
+            margin: 0;
+        }
+    }
+}
