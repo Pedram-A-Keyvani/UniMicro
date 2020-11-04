@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
 
-  base_url: 'https://test.softrig.com/api/',
+  baseUrl: 'https://test.softrig.com/api/',
   authority: 'https://test-login.softrig.com',
-  client_id: '62a920c7-5283-4901-ad24-82d29ea7db2d',
-  redirect_uri: 'http://localhost:4200/assets/auth.html',
-  post_logout_redirect_uri: 'http://localhost:4200/login',
-  silent_redirect_uri: 'http://localhost:4200/assets/silent-renew.html',
+  clientId: 'b58c0640-92ab-443a-87ad-eb854c970113',
+  redirectUri: 'http://localhost:4200/assets/auth.html',
+  postLogoutRedirectUri: 'http://localhost:4200/#/login',
+  silentRedirectUri: 'http://localhost:4200/assets/silent-renew.html',
   automaticSilentRenew: true,
-  response_type: 'id_token token',
+  responseType: 'id_token token',
   scope: 'openid profile AppFramework',
   filterProtocolClaims: true
 };
