@@ -1,0 +1,87 @@
+@use 'src/app/shared/styles/_form' as field;
+@use 'src/app/shared/styles/_line' as line;
+@use 'src/app/shared/styles/_button' as button;
+
+:host {
+    .container {
+        display: grid;
+        grid-template-areas: "content action_bar";
+        grid-template-columns: 2fr 1fr;
+
+        @media only screen and (max-width: 600px) {
+            grid-template-areas:
+                "content"
+                "action_bar";
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr;
+        }
+    }
+
+    .content {
+        grid-area: content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 10px;
+    }
+
+    .action-bar {
+        grid-area: action_bar;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: flex-start;
+        position: sticky;
+        top: 120px;
+        margin: 10px;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+
+        @media only screen and (max-width: 600px) {
+            top: auto;
+            bottom: 0;
+            background-color: #ffffff;
+            border-top: solid 1px #c1c1c1;
+        }
+    }
+
+    .errors {
+        color: #e91919;
+    }
+
+    .field {
+        @include field.as-field;
+    }
+
+    .line {
+        @include line.as-line($margin: 10px);
+    }
+
+    .button {
+        flex: 1;
+        height: 30px;
+        max-width: 175px;
+        min-width: 130px;
+        margin: 5px;
+
+        &__submit {
+            color: #ffffff;
+            background-color: #1793be;
+            border: solid 1px #1793be;
+        }
+
+        &__cancel {
+            color: #000000;
+            border: solid 1px #c1c1c1;
+            text-decoration: none;
+        }
+
+        @include button.as-button;
+    }
+}

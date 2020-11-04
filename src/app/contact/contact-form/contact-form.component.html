@@ -1,0 +1,78 @@
+<div class="container" [formGroup]="form">
+    <div class="content">
+        <div class="field field--inline" [class.field--error]="form.controls.name.touched && form.controls.name.errors">
+            <div class="field__label">Name *</div>
+            <input type="text" class="field__input" [formControl]="form.controls.name" />
+        </div>
+        <div class="field field--inline">
+            <div class="field__label">Role</div>
+            <input type="text" class="field__input" [formControl]="form.controls.role" />
+        </div>
+        <div class="field field--inline"
+            [class.field--error]="form.controls.defaultEmailAddress.touched && form.controls.defaultEmailAddress.errors">
+            <div class="field__label">Email *</div>
+            <input type="text" class="field__input" [formControl]="form.controls.defaultEmailAddress" />
+        </div>
+        <div class="line line--horizontal"><span class="line__title line__title--horizontal">Phone</span></div>
+        <div class="field field--inline">
+            <div class="field__label">Phone</div>
+            <input type="text" class="field__input" [formControl]="form.controls.defaultPhoneNumber" />
+        </div>
+        <div class="field field--inline">
+            <div class="field__label">Phone type</div>
+            <input type="text" class="field__input" [formControl]="form.controls.defaultPhoneType" />
+        </div>
+        <div class="field field--inline">
+            <div class="field__label">Phone description</div>
+            <input type="text" class="field__input" [formControl]="form.controls.defaultPhoneDescription" />
+        </div>
+        <div class="line line--horizontal"><span class="line__title line__title--horizontal">Address</span></div>
+        <div class="field field--inline">
+            <div class="field__label">Country</div>
+            <input type="text" class="field__input" [formControl]="form.controls.invoiceCountry" />
+        </div>
+        <div class="field field--inline">
+            <div class="field__label">City</div>
+            <input type="text" class="field__input" [formControl]="form.controls.invoiceCity" />
+        </div>
+        <div class="field field--inline">
+            <div class="field__label">Region</div>
+            <input type="text" class="field__input" [formControl]="form.controls.invoiceRegion" />
+        </div>
+        <div class="field field--inline">
+            <div class="field__label">Postal Code</div>
+            <input type="text" class="field__input" [formControl]="form.controls.invoicePostalCode" />
+        </div>
+        <div class="field field--inline">
+            <div class="field__label">Address line 1</div>
+            <input type="text" class="field__input" [formControl]="form.controls.invoiceAddressLine1" />
+        </div>
+        <div class="field field--inline">
+            <div class="field__label">Address line 2</div>
+            <input type="text" class="field__input" [formControl]="form.controls.invoiceAddressLine2" />
+        </div>
+        <div class="field field--inline">
+            <div class="field__label">Address line 3</div>
+            <input type="text" class="field__input" [formControl]="form.controls.invoiceAddressLine3" />
+        </div>
+        <div class="line line--horizontal"><span class="line__title line__title--horizontal">Comment</span></div>
+        <div class="field field--inline">
+            <div class="field__label">Comment</div>
+            <textarea type="text" class="field__input" [formControl]="form.controls.comment"></textarea>
+        </div>
+    </div>
+    <div class="action-bar">
+        <div *ngIf="form.invalid && form.touched" class="errors">We need more information to submit
+            <ul>
+                <li *ngIf="form.controls.name.touched && form.controls.name.errors?.required">Name is required.</li>
+                <li
+                    *ngIf="form.controls.defaultEmailAddress.touched && form.controls.defaultEmailAddress.errors?.required">
+                    Email is required.</li>
+            </ul>
+        </div>
+        <div class="actions">
+            <div class="button button__submit" [class.button--disabled]="form.invalid">Submit</div>
+            <a class="button button__cancel" [routerLink]="['/contacts']">Cancel</a>
+        </div>
+    </div>
+</div>
