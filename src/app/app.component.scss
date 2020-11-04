@@ -1,0 +1,41 @@
+:host {
+    .container {
+        display: grid;
+        grid-template-areas:
+            "header"
+            "content";
+        grid-template-rows: auto 1fr;
+        height: 100%;
+    }
+    .header {
+        grid-area: header;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        position: sticky;
+        top: 0;
+    }
+
+    .menu {
+        flex: 10 1 auto;
+        background-color: #232323;
+        margin: 0;
+        padding: 10px;
+
+        &__item {
+            align-items: center;
+            color: #ffffff;
+        }
+    }
+
+    .title {
+        flex: 1 1 auto;
+        margin: 0;
+        padding: 10px;
+        background-color: #f0f0f0;
+    }
+
+    .content {
+        grid-area: content;
+    }
+}
