@@ -1,0 +1,14 @@
+:host {
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #8ac782;
+        height: 100%;
+
+        .redirect {
+            color: #ffffff;
+            margin: 0;
+        }
+    }
+}
