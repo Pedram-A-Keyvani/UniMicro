@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { mockContacts } from '@app/contact/contacts.mock';
 import { environment } from '@app/environment';
 import { Contact } from '@app/models/contact.model';
-import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -14,7 +12,6 @@ export class ContactHttpService {
   constructor(private httpClient: HttpClient) { }
 
   async get(id: number): Promise<Contact> {
-    return of(<Contact>mockContacts.find(a => a.id === id)).toPromise();
     return this.httpClient.get(
       `${environment.baseUrl}biz/contacts/${id}` +
       '?expand=Info,Info.InvoiceAddress,Info.DefaultPhone,Info.DefaultEmail,Info.DefaultAddress')
@@ -25,7 +22,6 @@ export class ContactHttpService {
   }
 
   async getList(top: number, skip: number = 0): Promise<Contact[]> {
-    return of(<Contact[]>mockContacts.slice(skip, skip + top)).toPromise();
     return this.httpClient.get(
       `${environment.baseUrl}biz/contacts` +
       '?expand=Info,Info.InvoiceAddress,Info.DefaultPhone,Info.DefaultEmail,Info.DefaultAddress&hateoas=false' +
@@ -52,11 +48,7 @@ export class ContactHttpService {
       .toPromise();
   }
 
-  async archive(id: number): Promise<Contact> {
-    return this.httpClient.delete(`${environment.baseUrl}biz/contacts/${id}`)
-      .pipe(
-        map<any, Contact>(a => new Contact().deserialize(a))
-      )
-      .toPromise();
+  async archive(id: number): Promise<void> {
+    this.httpClient.delete(`${environment.baseUrl}biz/contacts/${id}`).toPromise();
   }
 }
