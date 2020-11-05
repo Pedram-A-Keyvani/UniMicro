@@ -1,11 +1,16 @@
 <div class="container">
     <div class="header">
-        <h1 class="title">
-            {{title}}
-        </h1>
+        <div class="title">
+            <h1> {{title}}</h1>
+            <h5 *ngIf="authService.isLoggedIn">{{authService.currentUser.profile.companyName}}</h5>
+        </div>
         <h3 class="menu">
-            <a class="menu__item" routerLink="/login">Login</a> |
-            <a class="menu__item" routerLink="/contacts">Contacts</a>
+            <ng-container *ngIf="authService.isLoggedIn">
+                <div class="menu__item">{{authService.currentUser.profile.preferred_username}}</div>
+                <div class="menu__item action" (click)="onLogout()">Logout</div> |
+                <a class="menu__item" routerLink="/">Home</a> |
+                <a class="menu__item" routerLink="/contacts">Contacts</a>
+            </ng-container>
         </h3>
     </div>
     <div class="content">

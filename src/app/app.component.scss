@@ -7,6 +7,7 @@
         grid-template-rows: auto 1fr;
         height: 100%;
     }
+
     .header {
         grid-area: header;
         display: flex;
@@ -17,25 +18,39 @@
     }
 
     .menu {
+        display: flex;
+        flex-wrap: wrap;
         flex: 10 1 auto;
         background-color: #232323;
+        color: #ffffff;
         margin: 0;
         padding: 10px;
 
         &__item {
             align-items: center;
             color: #ffffff;
+            margin: 0 5px;
         }
     }
 
     .title {
+        display: flex;
+        flex-direction: column;
         flex: 1 1 auto;
-        margin: 0;
         padding: 10px;
         background-color: #f0f0f0;
+
+        h1,
+        h5 {
+            margin: 0;
+        }
     }
 
     .content {
         grid-area: content;
+    }
+
+    .action {
+        cursor: pointer;
     }
 }
