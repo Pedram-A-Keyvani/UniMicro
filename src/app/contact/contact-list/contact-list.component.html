@@ -26,9 +26,9 @@
     </div>
     <div class="actions">
         <a class="button button__add" [routerLink]="['/contacts', 'add']">Add</a>
-        <a class="button button__edit" [class.button--disabled]="!selectedItemId"
+        <a class="button button__edit" [class.button__edit--disabled]="!selectedItemId"
             [routerLink]="['/contacts', 'edit', selectedItemId]">Edit</a>
-        <div class="button button__delete" [class.button--disabled]="!selectedItemId"
+        <div class="button button__delete" [class.button__delete--disabled]="!selectedItemId"
             (click)="onDelete(selectedItemId)">Delete</div>
     </div>
 </div>

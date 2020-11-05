@@ -29,7 +29,9 @@ export class ContactListComponent implements OnInit, AfterViewInit {
   }
 
   async onDelete(id: number) {
-    await this.contactHttpService.archive(20);
+    await this.contactHttpService.archive(id);
+    this.contacts = this.contacts.filter(a => a.id !== id);
+    this.selectedItemId = undefined;
   }
 
   private setListElementWidth(width: number) {

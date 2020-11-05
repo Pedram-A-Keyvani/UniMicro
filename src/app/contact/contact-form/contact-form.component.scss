@@ -71,17 +71,17 @@
         margin: 5px;
 
         &__submit {
+            @include button.as-button;
             color: #ffffff;
             background-color: #1793be;
             border: solid 1px #1793be;
         }
 
         &__cancel {
+            @include button.as-button;
             color: #000000;
             border: solid 1px #c1c1c1;
             text-decoration: none;
         }
-
-        @include button.as-button;
     }
 }

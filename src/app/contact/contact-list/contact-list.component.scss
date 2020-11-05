@@ -90,7 +90,6 @@
         @for $item from 0 to $columns {
             &-w#{$item} {
                 width: calc(var(--list-width) / #{$columns} * #{$item});
-                // width: calc(1000px / #{$columns} * #{$item});
             }
         }
     }
@@ -101,21 +100,22 @@
         width: 100%;
 
         &__add {
+            @include button.as-button;
             color: #ffffff;
             background-color: #0c9129;
         }
 
         &__edit {
+            @include button.as-button;
             color: #212121;
             background-color: #e7d31f;
         }
 
         &__delete {
+            @include button.as-button;
             color: #ffffff;
             background-color: #be1717;
         }
-
-        @include button.as-button;
     }
 
     .actions {
