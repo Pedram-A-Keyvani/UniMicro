@@ -1,12 +1,13 @@
 import { AbstractControl, FormGroup } from "@angular/forms"
+import { TPhone } from '@app/types/phone.type';
 
-interface ContactForm<T1, T2> {
+interface ContactForm<T1, T2 = T1, T3 = T1> {
     role: T1;
     comment: T1;
     name: T1;
     defaultPhoneDescription: T1;
     defaultPhoneNumber: T1;
-    defaultPhoneType: T1;
+    defaultPhoneType: T3;
     defaultEmailAddress: T1;
     invoiceCity: T1;
     invoiceCountry: T1;
@@ -22,9 +23,9 @@ interface ContactForm<T1, T2> {
     invoiceAddressId: T2;
 }
 
-export interface ContactFormControl extends ContactForm<AbstractControl, AbstractControl> { }
+export interface ContactFormControl extends ContactForm<AbstractControl> { }
 
-export interface ContactFormValue extends ContactForm<string, number> { }
+export interface ContactFormValue extends ContactForm<string, number, TPhone.Type> { }
 
 // Strongly typed FormGroup for Contact
 export class ContactFormGroup extends FormGroup {

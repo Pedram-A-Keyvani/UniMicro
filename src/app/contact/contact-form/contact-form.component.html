@@ -20,7 +20,9 @@
         </div>
         <div class="field field--inline">
             <div class="field__label">Phone type</div>
-            <input type="text" class="field__input" [formControl]="form.controls.defaultPhoneType" />
+            <select class="field__select" [formControl]="form.controls.defaultPhoneType">
+                <option *ngFor="let phoneType of phoneTypeList" [value]="phoneType.type">{{phoneType.name}}</option>
+            </select>
         </div>
         <div class="field field--inline">
             <div class="field__label">Phone description</div>
@@ -71,7 +73,7 @@
             </ul>
         </div>
         <div class="actions">
-            <div class="button button__submit" [class.button--disabled]="form.invalid">Submit</div>
+            <div class="button button__submit" [class.button__submit--disabled]="form.invalid" (click)="onSubmit()">Submit</div>
             <a class="button button__cancel" [routerLink]="['/contacts']">Cancel</a>
         </div>
     </div>

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ContactFormGroup, ContactFormValue } from '@app/contact/contact-form/contact-form.model';
 import { ContactHttpService } from '@app/http-services/contact-http.service';
 import { Contact } from '@app/models/contact.model';
+import { TPhone } from '@app/types/phone.type';
 
 @Component({
   selector: 'app-contact',
@@ -14,6 +15,7 @@ export class ContactFormComponent implements OnInit {
 
   private mode: 'add' | 'edit';
   private id: number;
+  readonly phoneTypeList = TPhone.List;
   conact: Contact;
   form: ContactFormGroup;
 
@@ -60,7 +62,7 @@ export class ContactFormComponent implements OnInit {
         name: contact?.info?.name ?? '',
         defaultPhoneDescription: contact?.info?.defaultPhone?.description ?? '',
         defaultPhoneNumber: contact?.info?.defaultPhone?.number ?? '',
-        defaultPhoneType: contact?.info?.defaultPhone?.type ?? '',
+        defaultPhoneType: contact?.info?.defaultPhone?.type ?? TPhone.Type.None,
         defaultEmailAddress: contact?.info?.defaultEmail?.emailAddress ?? '',
         invoiceCity: contact?.info?.invoiceAddress?.city ?? '',
         invoiceCountry: contact?.info?.invoiceAddress?.country ?? '',
@@ -109,6 +111,7 @@ export class ContactFormComponent implements OnInit {
     }
     else {
       await this.contactHttpService.edit(this.id, {
+        id: this.id,
         comment: value.comment,
         role: value.role,
         info: {
@@ -137,5 +140,7 @@ export class ContactFormComponent implements OnInit {
         }
       });
     }
+
+    this.router.navigate(['/contacts']);
   }
 }
