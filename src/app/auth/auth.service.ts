@@ -10,9 +10,7 @@ const settings: any = {
   response_type: environment.responseType,
   scope: environment.scope,
   filterProtocolClaims: environment.filterProtocolClaims,
-  //loadUserInfo: environment.loadUserInfo,
-  automaticSilentRenew: true,
-  silent_redirect_uri: environment.silentRedirectUri,
+  automaticSilentRenew: true
 
 };
 
@@ -35,16 +33,18 @@ export class AuthService {
     this.userManager = new UserManager(settings);
     this.userManager.getUser().then(user => {
       this.currentUser = user;
-      console.log(user);
     });
   }
 
-  startAuthentication(): Promise<void> {
+  async startAuthentication() {
     return this.userManager.signinRedirect();
   }
 
-  async completeAuthentication(): Promise<void> {
+  async completeAuthentication() {
     this.currentUser = await this.userManager.signinRedirectCallback();
-    console.log(this.currentUser);
+  }
+
+  async logout(returnUrl?: string) {
+    await this.userManager.signoutRedirect(returnUrl);
   }
 }
