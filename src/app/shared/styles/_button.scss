@@ -6,6 +6,8 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: $font-size;
+    text-decoration: none;
+    color: #000000;
 
     // unselectable text
     user-select: none;
@@ -13,6 +15,7 @@
     &--disabled {
         color: #646464;
         background-color: #c1c1c1;
+        border-color: #c1c1c1;
         pointer-events: none;
     }
 }

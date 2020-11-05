@@ -14,7 +14,7 @@
         margin: 5px;
     }
 
-    &__input {
+    .input {
         flex: 1 1 50%;
         font-size: $input-font-size;
         border: solid 1px #c1c1c1;
@@ -23,6 +23,16 @@
         margin: 5px;
         padding: 5px;
         min-width: 250px;
+    }
+
+    &__input {
+        @extend .input;
+    }
+
+    &__select {
+        @extend .input;
+        display: block;
+        box-sizing: content-box;
     }
 
     &--inline {
