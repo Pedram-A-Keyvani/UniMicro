@@ -1,0 +1,17 @@
+<div class="container">
+    <div *ngIf="!authService.isLoggedIn" class="start">
+        <h2>This is Uni Micro technical test project</h2>
+        <div class="button button__get-started" (click)="onLogin()">Get Started</div>
+    </div>
+    <div *ngIf="authService.isLoggedIn" class="components">
+        <div class="component-box">
+            <h3>List of your contacts</h3>
+            name, address, phone, email and more
+            <a class="button button__component" [routerLink]="['/contacts']">Contacts</a>
+        </div>
+        <div class="component-box">
+            <h3>Next componet is comming ...</h3>
+            <div class="button button__component button__component--disabled">Next Component</div>
+        </div>
+    </div>
+</div>

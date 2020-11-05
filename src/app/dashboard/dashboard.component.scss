@@ -1,0 +1,54 @@
+@use 'src/app/shared/styles/_button' as button;
+
+:host {
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .start {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .components {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex: 1;
+    }
+
+    .component-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        min-width: 220px;
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .button {
+        &__get-started {
+            @include button.as-button;
+            background-color: #4141a0;
+            color: #ffffff;
+            width: 150px;
+            margin: 10px;
+        }
+
+        &__component {
+            @include button.as-button;
+            background-color: #8bd9e3;
+            min-width: 150px;
+            margin: 10px;
+        }
+    }
+}
