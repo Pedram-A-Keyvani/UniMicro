@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthService } from '@app/auth/auth.service';
 import { AuthGuardService } from '@app/auth/auth-guard.service';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CoreModule } from '@app/core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -22,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     AuthService,
     AuthGuardService,
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    // { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })
